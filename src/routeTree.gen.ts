@@ -10,11 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as GetStartedRouteImport } from './routes/get-started'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as PharmacyRouteImport } from './routes/pharmacy'
 import { Route as MedicinesIndexRouteImport } from './routes/medicines.index'
 import { Route as MedicinesIdRouteImport } from './routes/medicines.$id'
 import { Route as PharmaciesIndexRouteImport } from './routes/pharmacies.index'
@@ -25,6 +27,11 @@ import { Route as RegisterPharmacyRouteImport } from './routes/register.pharmacy
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiRoute = AiRouteImport.update({
@@ -50,6 +57,11 @@ const LoginRoute = LoginRouteImport.update({
 const OrdersRoute = OrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmacyRoute = PharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MedicinesIndexRoute = MedicinesIndexRouteImport.update({
@@ -85,11 +97,13 @@ const RegisterPharmacyRoute = RegisterPharmacyRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/ai': typeof AiRoute
   '/dashboard': typeof DashboardRoute
   '/get-started': typeof GetStartedRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
+  '/pharmacy': typeof PharmacyRoute
   '/medicines/$id': typeof MedicinesIdRoute
   '/pharmacies/$id': typeof PharmaciesIdRoute
   '/register/patient': typeof RegisterPatientRoute
@@ -99,11 +113,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/ai': typeof AiRoute
   '/dashboard': typeof DashboardRoute
   '/get-started': typeof GetStartedRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
+  '/pharmacy': typeof PharmacyRoute
   '/medicines/$id': typeof MedicinesIdRoute
   '/pharmacies/$id': typeof PharmaciesIdRoute
   '/register/patient': typeof RegisterPatientRoute
@@ -114,11 +130,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/ai': typeof AiRoute
   '/dashboard': typeof DashboardRoute
   '/get-started': typeof GetStartedRoute
   '/login': typeof LoginRoute
   '/orders': typeof OrdersRoute
+  '/pharmacy': typeof PharmacyRoute
   '/medicines/$id': typeof MedicinesIdRoute
   '/pharmacies/$id': typeof PharmaciesIdRoute
   '/register/patient': typeof RegisterPatientRoute
@@ -130,11 +148,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/ai'
     | '/dashboard'
     | '/get-started'
     | '/login'
     | '/orders'
+    | '/pharmacy'
     | '/medicines/$id'
     | '/pharmacies/$id'
     | '/register/patient'
@@ -144,11 +164,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/ai'
     | '/dashboard'
     | '/get-started'
     | '/login'
     | '/orders'
+    | '/pharmacy'
     | '/medicines/$id'
     | '/pharmacies/$id'
     | '/register/patient'
@@ -158,11 +180,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/ai'
     | '/dashboard'
     | '/get-started'
     | '/login'
     | '/orders'
+    | '/pharmacy'
     | '/medicines/$id'
     | '/pharmacies/$id'
     | '/register/patient'
@@ -173,11 +197,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   AiRoute: typeof AiRoute
   DashboardRoute: typeof DashboardRoute
   GetStartedRoute: typeof GetStartedRoute
   LoginRoute: typeof LoginRoute
   OrdersRoute: typeof OrdersRoute
+  PharmacyRoute: typeof PharmacyRoute
   MedicinesIdRoute: typeof MedicinesIdRoute
   PharmaciesIdRoute: typeof PharmaciesIdRoute
   RegisterPatientRoute: typeof RegisterPatientRoute
@@ -193,6 +219,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai': {
@@ -228,6 +261,13 @@ declare module '@tanstack/react-router' {
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacy': {
+      id: '/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof PharmacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/medicines/': {
@@ -277,11 +317,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   AiRoute: AiRoute,
   DashboardRoute: DashboardRoute,
   GetStartedRoute: GetStartedRoute,
   LoginRoute: LoginRoute,
   OrdersRoute: OrdersRoute,
+  PharmacyRoute: PharmacyRoute,
   MedicinesIdRoute: MedicinesIdRoute,
   PharmaciesIdRoute: PharmaciesIdRoute,
   RegisterPatientRoute: RegisterPatientRoute,
