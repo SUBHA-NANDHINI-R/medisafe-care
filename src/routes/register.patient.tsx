@@ -180,7 +180,7 @@ function Field({
   label,
   error,
   ...props
-}: React.InputHTMLAttributes<HTMLInputElement> & { id: string; label: string; error?: string }) {
+}: React.InputHTMLAttributes<HTMLInputElement> & { id: string; label: string; error?: string | undefined }) {
   return (
     <div className="space-y-2">
       <Label htmlFor={id}>{label}</Label>
