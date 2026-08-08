@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GetStartedRouteImport } from './routes/get-started'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MedicinesIndexRouteImport } from './routes/medicines.index'
+import { Route as MedicinesIdRouteImport } from './routes/medicines.$id'
 import { Route as RegisterPatientRouteImport } from './routes/register.patient'
 import { Route as RegisterPharmacyRouteImport } from './routes/register.pharmacy'
 
@@ -30,6 +32,16 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MedicinesIndexRoute = MedicinesIndexRouteImport.update({
+  id: '/medicines/',
+  path: '/medicines/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicinesIdRoute = MedicinesIdRouteImport.update({
+  id: '/medicines/$id',
+  path: '/medicines/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterPatientRoute = RegisterPatientRouteImport.update({
   id: '/register/patient',
   path: '/register/patient',
@@ -45,46 +57,68 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/get-started': typeof GetStartedRoute
   '/login': typeof LoginRoute
+  '/medicines/$id': typeof MedicinesIdRoute
   '/register/patient': typeof RegisterPatientRoute
   '/register/pharmacy': typeof RegisterPharmacyRoute
+  '/medicines/': typeof MedicinesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/get-started': typeof GetStartedRoute
   '/login': typeof LoginRoute
+  '/medicines/$id': typeof MedicinesIdRoute
   '/register/patient': typeof RegisterPatientRoute
   '/register/pharmacy': typeof RegisterPharmacyRoute
+  '/medicines': typeof MedicinesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/get-started': typeof GetStartedRoute
   '/login': typeof LoginRoute
+  '/medicines/$id': typeof MedicinesIdRoute
   '/register/patient': typeof RegisterPatientRoute
   '/register/pharmacy': typeof RegisterPharmacyRoute
+  '/medicines/': typeof MedicinesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/get-started' | '/login' | '/register/patient' | '/register/pharmacy'
+    | '/'
+    | '/get-started'
+    | '/login'
+    | '/medicines/$id'
+    | '/register/patient'
+    | '/register/pharmacy'
+    | '/medicines/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/get-started' | '/login' | '/register/patient' | '/register/pharmacy'
+    | '/'
+    | '/get-started'
+    | '/login'
+    | '/medicines/$id'
+    | '/register/patient'
+    | '/register/pharmacy'
+    | '/medicines'
   id:
     | '__root__'
     | '/'
     | '/get-started'
     | '/login'
+    | '/medicines/$id'
     | '/register/patient'
     | '/register/pharmacy'
+    | '/medicines/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GetStartedRoute: typeof GetStartedRoute
   LoginRoute: typeof LoginRoute
+  MedicinesIdRoute: typeof MedicinesIdRoute
   RegisterPatientRoute: typeof RegisterPatientRoute
   RegisterPharmacyRoute: typeof RegisterPharmacyRoute
+  MedicinesIndexRoute: typeof MedicinesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -110,6 +144,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/medicines/': {
+      id: '/medicines/'
+      path: '/medicines'
+      fullPath: '/medicines/'
+      preLoaderRoute: typeof MedicinesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medicines/$id': {
+      id: '/medicines/$id'
+      path: '/medicines/$id'
+      fullPath: '/medicines/$id'
+      preLoaderRoute: typeof MedicinesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register/patient': {
       id: '/register/patient'
       path: '/register/patient'
@@ -131,8 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GetStartedRoute: GetStartedRoute,
   LoginRoute: LoginRoute,
+  MedicinesIdRoute: MedicinesIdRoute,
   RegisterPatientRoute: RegisterPatientRoute,
   RegisterPharmacyRoute: RegisterPharmacyRoute,
+  MedicinesIndexRoute: MedicinesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
