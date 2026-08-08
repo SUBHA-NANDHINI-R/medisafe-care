@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as GetStartedRouteImport } from './routes/get-started'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as PharmacyRouteImport } from './routes/pharmacy'
+import { Route as MedicinesIndexRouteImport } from './routes/medicines.index'
+import { Route as MedicinesIdRouteImport } from './routes/medicines.$id'
+import { Route as PharmaciesIndexRouteImport } from './routes/pharmacies.index'
+import { Route as PharmaciesIdRouteImport } from './routes/pharmacies.$id'
+import { Route as RegisterPatientRouteImport } from './routes/register.patient'
+import { Route as RegisterPharmacyRouteImport } from './routes/register.pharmacy'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetStartedRoute = GetStartedRouteImport.update({
+  id: '/get-started',
+  path: '/get-started',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmacyRoute = PharmacyRouteImport.update({
+  id: '/pharmacy',
+  path: '/pharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicinesIndexRoute = MedicinesIndexRouteImport.update({
+  id: '/medicines/',
+  path: '/medicines/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicinesIdRoute = MedicinesIdRouteImport.update({
+  id: '/medicines/$id',
+  path: '/medicines/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmaciesIndexRoute = PharmaciesIndexRouteImport.update({
+  id: '/pharmacies/',
+  path: '/pharmacies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmaciesIdRoute = PharmaciesIdRouteImport.update({
+  id: '/pharmacies/$id',
+  path: '/pharmacies/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterPatientRoute = RegisterPatientRouteImport.update({
+  id: '/register/patient',
+  path: '/register/patient',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterPharmacyRoute = RegisterPharmacyRouteImport.update({
+  id: '/register/pharmacy',
+  path: '/register/pharmacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ai': typeof AiRoute
+  '/dashboard': typeof DashboardRoute
+  '/get-started': typeof GetStartedRoute
+  '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
+  '/pharmacy': typeof PharmacyRoute
+  '/medicines/$id': typeof MedicinesIdRoute
+  '/pharmacies/$id': typeof PharmaciesIdRoute
+  '/register/patient': typeof RegisterPatientRoute
+  '/register/pharmacy': typeof RegisterPharmacyRoute
+  '/medicines/': typeof MedicinesIndexRoute
+  '/pharmacies/': typeof PharmaciesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ai': typeof AiRoute
+  '/dashboard': typeof DashboardRoute
+  '/get-started': typeof GetStartedRoute
+  '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
+  '/pharmacy': typeof PharmacyRoute
+  '/medicines/$id': typeof MedicinesIdRoute
+  '/pharmacies/$id': typeof PharmaciesIdRoute
+  '/register/patient': typeof RegisterPatientRoute
+  '/register/pharmacy': typeof RegisterPharmacyRoute
+  '/medicines': typeof MedicinesIndexRoute
+  '/pharmacies': typeof PharmaciesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ai': typeof AiRoute
+  '/dashboard': typeof DashboardRoute
+  '/get-started': typeof GetStartedRoute
+  '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
+  '/pharmacy': typeof PharmacyRoute
+  '/medicines/$id': typeof MedicinesIdRoute
+  '/pharmacies/$id': typeof PharmaciesIdRoute
+  '/register/patient': typeof RegisterPatientRoute
+  '/register/pharmacy': typeof RegisterPharmacyRoute
+  '/medicines/': typeof MedicinesIndexRoute
+  '/pharmacies/': typeof PharmaciesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/ai'
+    | '/dashboard'
+    | '/get-started'
+    | '/login'
+    | '/orders'
+    | '/pharmacy'
+    | '/medicines/$id'
+    | '/pharmacies/$id'
+    | '/register/patient'
+    | '/register/pharmacy'
+    | '/medicines/'
+    | '/pharmacies/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/ai'
+    | '/dashboard'
+    | '/get-started'
+    | '/login'
+    | '/orders'
+    | '/pharmacy'
+    | '/medicines/$id'
+    | '/pharmacies/$id'
+    | '/register/patient'
+    | '/register/pharmacy'
+    | '/medicines'
+    | '/pharmacies'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/ai'
+    | '/dashboard'
+    | '/get-started'
+    | '/login'
+    | '/orders'
+    | '/pharmacy'
+    | '/medicines/$id'
+    | '/pharmacies/$id'
+    | '/register/patient'
+    | '/register/pharmacy'
+    | '/medicines/'
+    | '/pharmacies/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AiRoute: typeof AiRoute
+  DashboardRoute: typeof DashboardRoute
+  GetStartedRoute: typeof GetStartedRoute
+  LoginRoute: typeof LoginRoute
+  OrdersRoute: typeof OrdersRoute
+  PharmacyRoute: typeof PharmacyRoute
+  MedicinesIdRoute: typeof MedicinesIdRoute
+  PharmaciesIdRoute: typeof PharmaciesIdRoute
+  RegisterPatientRoute: typeof RegisterPatientRoute
+  RegisterPharmacyRoute: typeof RegisterPharmacyRoute
+  MedicinesIndexRoute: typeof MedicinesIndexRoute
+  PharmaciesIndexRoute: typeof PharmaciesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +221,116 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-started': {
+      id: '/get-started'
+      path: '/get-started'
+      fullPath: '/get-started'
+      preLoaderRoute: typeof GetStartedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacy': {
+      id: '/pharmacy'
+      path: '/pharmacy'
+      fullPath: '/pharmacy'
+      preLoaderRoute: typeof PharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medicines/': {
+      id: '/medicines/'
+      path: '/medicines'
+      fullPath: '/medicines/'
+      preLoaderRoute: typeof MedicinesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medicines/$id': {
+      id: '/medicines/$id'
+      path: '/medicines/$id'
+      fullPath: '/medicines/$id'
+      preLoaderRoute: typeof MedicinesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacies/': {
+      id: '/pharmacies/'
+      path: '/pharmacies'
+      fullPath: '/pharmacies/'
+      preLoaderRoute: typeof PharmaciesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacies/$id': {
+      id: '/pharmacies/$id'
+      path: '/pharmacies/$id'
+      fullPath: '/pharmacies/$id'
+      preLoaderRoute: typeof PharmaciesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/patient': {
+      id: '/register/patient'
+      path: '/register/patient'
+      fullPath: '/register/patient'
+      preLoaderRoute: typeof RegisterPatientRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register/pharmacy': {
+      id: '/register/pharmacy'
+      path: '/register/pharmacy'
+      fullPath: '/register/pharmacy'
+      preLoaderRoute: typeof RegisterPharmacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AiRoute: AiRoute,
+  DashboardRoute: DashboardRoute,
+  GetStartedRoute: GetStartedRoute,
+  LoginRoute: LoginRoute,
+  OrdersRoute: OrdersRoute,
+  PharmacyRoute: PharmacyRoute,
+  MedicinesIdRoute: MedicinesIdRoute,
+  PharmaciesIdRoute: PharmaciesIdRoute,
+  RegisterPatientRoute: RegisterPatientRoute,
+  RegisterPharmacyRoute: RegisterPharmacyRoute,
+  MedicinesIndexRoute: MedicinesIndexRoute,
+  PharmaciesIndexRoute: PharmaciesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
